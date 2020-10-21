@@ -1,2 +1,5 @@
 node_modules
 dist
+src/database/database.sqlite
+src/public/uploads/*
+!src/public/uploads/.gitkeep
