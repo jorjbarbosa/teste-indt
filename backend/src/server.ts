@@ -5,6 +5,7 @@ import './database'
 
 const app = express();
 app.use(express.json())
+app.use('/files', express.static(__dirname + '/public/uploads'))
 app.use(routes)
 
 app.listen(3333, () => {
