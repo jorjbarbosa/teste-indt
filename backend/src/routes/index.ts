@@ -1,9 +1,8 @@
 import { Router } from 'express'
+import productsRouter from './products.routes'
 
 const routes = Router()
 
-routes.get('/', (request, response) => {
-    return response.json({msg: 'Servidor rodando'})
-})
+routes.use('/api/products', productsRouter)
 
 export default routes
