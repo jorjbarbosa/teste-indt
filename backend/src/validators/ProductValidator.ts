@@ -1,26 +1,19 @@
-import { check, validationResult } from 'express-validator'
+import { body } from 'express-validator'
 
 export default [
-  check('nome')
-    .not()
-    .isEmpty()
-    .withMessage('O campo nome é obrigatório'),
-  check('descricao')
-    .not()
-    .isEmpty()
-    .withMessage('O campo descrição é obrigatório'),
-  check('imagem')
-    .not()
-    .isEmpty()
-    .withMessage('O campo imagem é obrigatório'),
-  check('valor')
-    .not()
-    .isEmpty()
-    .withMessage('O campo valor é obrigatório'),
-  (req: any, res: any, next: any) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty())
-      return res.status(422).json({ errors: errors.array() });
-    next();
-  },
+  body('nome')
+    .notEmpty()
+    .withMessage('O campo "nome" é obrigatório'),
+  body('descricao')
+    .notEmpty()
+    .withMessage('O campo "descrição" é obrigatório'),
+  // body('imagem')
+  //   .notEmpty()
+  //   .withMessage('O campo "imagem" é obrigatório'),
+  body('valor')
+    .notEmpty()
+    .withMessage('O campo "valor" é obrigatório'),
+  body('disponivel')
+    .notEmpty()
+    .withMessage('O campo "disponível" é obrigatório')
 ]

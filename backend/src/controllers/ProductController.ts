@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import { validationResult } from "express-validator";
 import DeleteProductService from "../services/products/DeleteProdutctService";
 import GetProductsService from "../services/products/GetProductsService";
 import ShowProductService from "../services/products/ShowProductService";
@@ -23,6 +24,10 @@ export default class ProductController {
   }
 
   public async store(request: Request, response: Response): Promise<Response> {
+    const errors = validationResult(request)
+    if (!errors.isEmpty())
+      return response.status(400).json({ errors: errors.array() });
+      
     const { nome, descricao, valor, disponivel } = request.body
     const imagem = request.file.filename
 
