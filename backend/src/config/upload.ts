@@ -3,13 +3,13 @@ import crypto from 'crypto'
 import multer from 'multer'
 
 export default {
-    storage: multer.diskStorage({
-        destination: path.resolve(__dirname, '../public/uploads'),
-        filename: (request, file, callback) => {
-            const fileHash = crypto.randomBytes(10).toString('hex')
-            const filename = `${fileHash}-${file.originalname}`
+  storage: multer.diskStorage({
+    destination: path.resolve(__dirname, '../public/uploads'),
+    filename: (request, file, callback) => {
+      const fileHash = crypto.randomBytes(10).toString('hex')
+      const filename = `${fileHash}-${file.originalname}`
 
-            return callback(null, filename)
-        }
-    })
+      return callback(null, filename)
+    }
+  })
 }
