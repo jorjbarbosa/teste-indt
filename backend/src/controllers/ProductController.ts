@@ -39,9 +39,20 @@ export default class ProductController {
   }
 
   public async update(request: Request, response: Response): Promise<Response> {
-    const UpdateProduct = new UpdateProductService()
+    const updateProduct = new UpdateProductService()
+    const { id } = request.params
+    const { nome, descricao, valor, disponivel } = request.body
+    const imagem = !request.file ? null : request.file.filename
 
-    return response.json({})
+    const product = await updateProduct.update(id, {
+      nome,
+      descricao,
+      imagem,
+      valor,
+      disponivel
+    })
+
+    return response.json(product)
   }
 
   public async delete(request: Request, response: Response): Promise<Response> {
