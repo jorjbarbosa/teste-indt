@@ -1,4 +1,4 @@
-import { DeleteResult, getRepository } from 'typeorm'
+import { getRepository } from 'typeorm'
 import Product from '../../models/Product'
 
 export default class DeleteProductService {
