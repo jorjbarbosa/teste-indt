@@ -27,7 +27,7 @@ export default class ProductController {
     const errors = validationResult(request)
     if (!errors.isEmpty())
       return response.status(400).json({ errors: errors.array() });
-      
+
     const { nome, descricao, valor, disponivel } = request.body
     const imagem = request.file.filename
 
@@ -44,6 +44,10 @@ export default class ProductController {
   }
 
   public async update(request: Request, response: Response): Promise<Response> {
+    const errors = validationResult(request)
+    if (!errors.isEmpty())
+      return response.status(400).json({ errors: errors.array() });
+
     const updateProduct = new UpdateProductService()
     const { id } = request.params
     const { nome, descricao, valor, disponivel } = request.body
