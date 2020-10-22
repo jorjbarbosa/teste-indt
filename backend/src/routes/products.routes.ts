@@ -11,4 +11,5 @@ productsRouter.get('/', productController.index)
 productsRouter.post('/', upload.single('imagem'), productController.store)
 productsRouter.put('/:id', upload.single('imagem'), productController.update)
 productsRouter.delete('/:id', productController.delete)
+
 export default productsRouter
