@@ -23,7 +23,6 @@ app.use((err: Error, request: Request, response: Response, next: NextFunction) =
       status: 'error',
       message: 'Ocorreu um erro interno'
     })
-    next()
 })
 
 app.listen(3333, () => {

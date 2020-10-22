@@ -8,6 +8,7 @@ const upload = multer(uploadConfig)
 const productController = new ProductController()
 
 productsRouter.get('/', productController.index)
+productsRouter.get('/:id', productController.show)
 productsRouter.post('/', upload.single('imagem'), productController.store)
 productsRouter.put('/:id', upload.single('imagem'), productController.update)
 productsRouter.delete('/:id', productController.delete)
