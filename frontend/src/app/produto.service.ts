@@ -29,4 +29,10 @@ export class ProdutoService {
   updateProduto(id, produto) {
     return this.http.put(`${this.BASE_URL}/products/${id}`, produto)
   }
+
+  uploadArquivo(arquivo: File) {
+    const formData: FormData = new FormData();
+    formData.append('imagem', arquivo, arquivo.name);
+    return this.http.post(`${this.BASE_URL}/products/upload`, formData )
+  }
 }

@@ -7,6 +7,11 @@
       </div>
     </div>
   </div>
+  <div *ngIf="msg.length > 0">
+    <div class="alert alert-success" role="alert">
+        {{ msg }}
+    </div>
+  </div>
   <div class="row">
     <div class="col-md-6 offset-md-3">
       <div class="card">
@@ -14,7 +19,7 @@
           <form action="">
             <div class="form-group">
               <label for="nome">Nome do Produto</label>
-              <input type="text" name="nome" class="form-control" required [(ngModel)]="produto.descricao">
+              <input type="text" name="nome" class="form-control" required [(ngModel)]="produto.nome">
             </div>
             <div class="form-group">
               <label for="descricao">Descrição</label>
@@ -27,19 +32,19 @@
             <div class="form-group">
               <label for="disponivel">Disponível</label>
               <select name="disponivel" class="form-control" [(ngModel)]="produto.disponivel">
-                <option value="1" selected>Sim</option>
-                <option value="0">Não</option>
+                <option [value]="true" selected>Sim</option>
+                <option [value]="false">Não</option>
               </select>
             </div>
             <div class="form-group">
               <label for="imagem">Selecione a Imagem</label>
-              <input type="file" name="imagem" class="form-control" [(ngModel)]="produto.imagem">
+              <input type="file" name="imagem" class="form-control" (change)="handleFileInput($event.target.files)">
             </div>
           </form>
         </div>
         <div class="card-footer">
           <a [routerLink]="'/produtos'" class="btn btn-danger">Cancelar</a>
-          <button type="button" class="btn btn-success ml-2">Salvar</button>
+          <button type="button" class="btn btn-success ml-2" (click)="cadastrarProduto()">Salvar</button>
         </div>
       </div>
     </div>
