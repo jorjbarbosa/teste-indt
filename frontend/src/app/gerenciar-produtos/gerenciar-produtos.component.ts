@@ -9,6 +9,7 @@ import { ProdutoService } from '../produto.service';
 export class GerenciarProdutosComponent implements OnInit {
 
   produtos: Array<Object>
+  msg: string = ''
   constructor(private produtoService: ProdutoService) { }
 
   ngOnInit(): void {
@@ -18,6 +19,17 @@ export class GerenciarProdutosComponent implements OnInit {
   listarProdutos(tipo: boolean) {
     this.produtoService.listarProdutos(tipo).subscribe(produtos => {
       this.produtos = produtos
+    }, err => {
+      console.log(err)
+    })
+  }
+
+  deletarProduto(id: string) {
+    this.produtoService.deletarProduto(id).subscribe((res) => {
+      if (res) {
+        this.msg = 'Produto excluído com sucesso'
+        this.listarProdutos(false)
+      }
     }, err => {
       console.log(err)
     })

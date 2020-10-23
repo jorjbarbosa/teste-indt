@@ -1,6 +1,11 @@
 <div class="container">
   <h4 class="mr-auto">Produtos Cadastrados</h4>
   <a [routerLink]="'/produtos/cadastrar'" class="btn btn-primary ml-auto">Cadastrar</a>
+  <div *ngIf="msg.length > 0">
+    <div class="alert alert-success mt-3" role="alert">
+      {{ msg }}
+    </div>
+  </div>
   <table class="table">
     <thead>
       <tr>
@@ -20,7 +25,7 @@
           <a [href]="'http://localhost:3333/files/' + produto.imagem" target="_blank">{{ produto.imagem }}</a>
         <td>
           <a href="#" class="btn btn-primary">Editar</a>
-          <a href="#" class="btn btn-danger">Excluir</a>
+          <button type="button" class="btn btn-danger" (click)="deletarProduto(produto.id)">Excluir</button>
         </td>
       </tr>
     </tbody>

@@ -1,18 +1,24 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
+import { ProdutoModel } from './cadastrar-produto/produto.model';
 @Injectable({
   providedIn: 'root'
 })
 export class ProdutoService {
 
+  BASE_URL: string = 'http://localhost:3333/api'
   constructor(private http: HttpClient) { }
 
   listarProdutos(completo: boolean): Observable<any> {
-    return this.http.get('http://localhost:3333/api/products', {
-      params: {
-        
-      }
-    })
+    return this.http.get(`${this.BASE_URL}/products`)
+  }
+
+  cadastrarProduto(produto: ProdutoModel): Observable<any> {
+    return this.http.post(`${this.BASE_URL}/products`, produto)
+  }
+
+  deletarProduto(id: string) {
+    return this.http.delete(`${this.BASE_URL}/products/${id}`)
   }
 }

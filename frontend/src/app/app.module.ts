@@ -12,6 +12,7 @@ import { ListaProdutosComponent } from './lista-produtos/lista-produtos.componen
 import { ProdutoComponent } from './produto/produto.component';
 import { GerenciarProdutosComponent } from './gerenciar-produtos/gerenciar-produtos.component';
 import { CadastrarProdutoComponent } from './cadastrar-produto/cadastrar-produto.component';
+import { FormsModule } from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { CadastrarProdutoComponent } from './cadastrar-produto/cadastrar-produto
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    FormsModule
   ],
   providers: [ProdutoService, HttpClientModule],
   bootstrap: [AppComponent]

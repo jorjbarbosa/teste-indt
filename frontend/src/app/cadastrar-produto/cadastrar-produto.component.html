@@ -1,5 +1,12 @@
 <div class="container">
   <h4>Cadastrar novo produto</h4>
+  <div *ngIf="errors.length > 0">
+    <div class="alert alert-danger" role="alert">
+      <div *ngFor="let error of errors">
+        {{ error.msg }}
+      </div>
+    </div>
+  </div>
   <div class="row">
     <div class="col-md-6 offset-md-3">
       <div class="card">
@@ -7,26 +14,26 @@
           <form action="">
             <div class="form-group">
               <label for="nome">Nome do Produto</label>
-              <input type="text" class="form-control" required>
+              <input type="text" name="nome" class="form-control" required>
             </div>
             <div class="form-group">
               <label for="descricao">Descrição</label>
-              <input type="text" name="descricao" class="form-control" required>
+              <input type="text" name="descricao" class="form-control" required [(ngModel)]="produto.descricao">
             </div>
             <div class="form-group">
-              <label for="preco">Preço</label>
-              <input type="number" min="1" step="any" class="form-control" required />
+              <label for="valor">Preço</label>
+              <input type="number" min="1" step="any" name="valor" class="form-control" required [(ngModel)]="produto.valor">
             </div>
             <div class="form-group">
               <label for="disponivel">Disponível</label>
-              <select name="disponivel" class="form-control">
+              <select name="disponivel" class="form-control" [(ngModel)]="produto.disponivel">
                 <option value="1" selected>Sim</option>
                 <option value="0">Não</option>
               </select>
             </div>
             <div class="form-group">
               <label for="imagem">Selecione a Imagem</label>
-              <input type="file" name="imagem" class="form-control" >
+              <input type="file" name="imagem" class="form-control" [(ngModel)]="produto.imagem">
             </div>
           </form>
         </div>

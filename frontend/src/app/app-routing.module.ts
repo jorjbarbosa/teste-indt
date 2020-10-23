@@ -14,7 +14,7 @@ const routes: Routes = [
     component: CadastrarProdutoComponent
   },
   {
-    path: '.',
+    path: '',
     component: VitrineComponent
   }
 ];
