@@ -15,7 +15,6 @@ export class CadastrarProdutoComponent implements OnInit {
   }
 
   cadastrarProduto() {
-    console.log(this.produto)
     this.produtoService.cadastrarProduto(this.produto)
       .subscribe(produto => console.log(produto), err => {
         this.errors = err.error.errors

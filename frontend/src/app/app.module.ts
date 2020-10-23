@@ -12,7 +12,8 @@ import { ListaProdutosComponent } from './lista-produtos/lista-produtos.componen
 import { ProdutoComponent } from './produto/produto.component';
 import { GerenciarProdutosComponent } from './gerenciar-produtos/gerenciar-produtos.component';
 import { CadastrarProdutoComponent } from './cadastrar-produto/cadastrar-produto.component';
-import { FormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms';
+import { EditarProdutoComponent } from './editar-produto/editar-produto.component'
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { FormsModule } from '@angular/forms'
     ListaProdutosComponent,
     ProdutoComponent,
     GerenciarProdutosComponent,
-    CadastrarProdutoComponent
+    CadastrarProdutoComponent,
+    EditarProdutoComponent
   ],
   imports: [
     BrowserModule,

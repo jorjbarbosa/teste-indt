@@ -24,7 +24,7 @@
         <td>
           <a [href]="'http://localhost:3333/files/' + produto.imagem" target="_blank">{{ produto.imagem }}</a>
         <td>
-          <a href="#" class="btn btn-primary">Editar</a>
+          <a [routerLink]="'/produtos/editar/' + produto.id" class="btn btn-primary">Editar</a>
           <button type="button" class="btn btn-danger" (click)="deletarProduto(produto.id)">Excluir</button>
         </td>
       </tr>
