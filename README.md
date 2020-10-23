@@ -4,46 +4,51 @@ Este projeto é um teste técnico proposto pelo Instituto Nacional de Desenvolvi
 
 O teste consiste em desenvolver um CRUD para gerenciar produtos e foi dividido em duas partes (Frontend e Backend) e foi desenvolvido utilizando TypeScript e Angular
 
-Tabmém foi usado sqlite para o banco de dados
+Também foi usado SQLite para o banco de dados
 
 # Requesitos
 
 Para executar os sistemas deste repositório é necessário posuir:
+
 Node.js: https://nodejs.org/en/download/
+
 Gerenciador de pacotes do Node (NPM): https://www.npmjs.com/
 
 ## Executando a aplicação
 
 ### Backend
 
-Para executar o Backend da aplicacação é necessário executar os seguintes comandos:
+Para executar o Backend da aplicação é necessário executar os seguintes comandos:
   ```
   cd backend 
   npm install 
   npm run dev:server
   ```
-A API de catálogo pode ser acessada através do endereço
+A API de produtos pode ser acessada através do endereço:
     
     http://localhost:3333
     
 ### Frontend
-Para executar o Backend da aplicação é necessário executar os seguintes comandos:
+Para executar o Frontend da aplicação é necessário executar os seguintes comandos:
   ```
   cd frontend 
   npm install 
   npm start
   ```
-A API de catálogo pode ser acessada através do endereço
+O frontend da aplicação pode ser acessado através do endereço:
     
     http://localhost:4200
     
 # API de Produtos
 
-Esta API possui funcionalidades básicas para realizar o gerenciamento de produtos, é possível executar as seguintes operacções
+Esta API possui funcionalidades básicas para realizar o gerenciamento de produtos, é possível executar as seguintes operações
 
 Listar produtos
+
 Cadastrar produtos
+
 Atualizar produtos
+
 Excluir produtos
 
 ### Listar Produtos
