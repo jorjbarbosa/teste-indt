@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProdutoService } from '../produto.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-editar-produto',
@@ -8,29 +9,32 @@ import { ProdutoService } from '../produto.service';
 })
 export class EditarProdutoComponent implements OnInit {
 
-  produto: Object
+  produto: any
   msg: string = ''
+  errors: Array<any> = []
   error: string = ''
-  constructor(private produtoService: ProdutoService) { }
+  id: string
+  constructor(private produtoService: ProdutoService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.getProduto(6)
+    this.id = this.route.snapshot.params['id']
+    console.log(this.id)
+    this.getProduto(this.id)
   }
-  getProduto(id) {
+  getProduto(id: string) {
     this.produtoService.getProduto(id)
       .subscribe(produto => {
         this.produto = produto
-        console.log(this.produto)
       })
   }
 
-  updateProduto(id) {
+  updateProduto(id: string) {
     this.produtoService.updateProduto(id, this.produto)
       .subscribe(produto => {
         if (produto)
           this.msg = 'Produto atualizado com sucesso'
       }, err => {
-        this.error = err.error
+        this.errors = err.error.errors
       })
   }
 }
