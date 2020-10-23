@@ -1,6 +1,6 @@
 # Desafio INDT
 
-Este projeto é um teste técnico proposto pelo Instituto Nacional de Desenvolvimento - INDT para a vaga de Desenvolvedor Full Stack Jr
+Este projeto é um teste técnico proposto pelo Instituto Desenvolvimento Tecnológico - INDT para a vaga de Desenvolvedor Full Stack Jr
 
 O teste consiste em desenvolver um CRUD para gerenciar produtos e foi dividido em duas partes (Frontend e Backend) e foi desenvolvido utilizando TypeScript e Angular
 
