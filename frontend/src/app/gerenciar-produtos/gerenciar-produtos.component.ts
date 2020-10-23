@@ -25,14 +25,17 @@ export class GerenciarProdutosComponent implements OnInit {
   }
 
   deletarProduto(id: string) {
-    this.produtoService.deletarProduto(id).subscribe((res) => {
-      if (res) {
-        this.msg = 'Produto excluído com sucesso'
-        this.listarProdutos(false)
-      }
-    }, err => {
-      console.log(err)
-    })
+
+    if (confirm('Deseja excluir este produto?')) {
+      this.produtoService.deletarProduto(id).subscribe((res) => {
+        if (res) {
+          this.msg = 'Produto excluído com sucesso'
+          this.listarProdutos(false)
+        }
+      }, err => {
+        console.log(err)
+      })
+    }
   }
 
 }

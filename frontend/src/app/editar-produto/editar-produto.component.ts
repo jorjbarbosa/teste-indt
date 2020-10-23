@@ -14,6 +14,8 @@ export class EditarProdutoComponent implements OnInit {
   errors: Array<any> = []
   error: string = ''
   id: string
+  arquivo: File = null;
+  
   constructor(private produtoService: ProdutoService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -36,5 +38,19 @@ export class EditarProdutoComponent implements OnInit {
       }, err => {
         this.errors = err.error.errors
       })
+  }
+
+  handleFileInput(files: FileList) {
+    this.arquivo = files.item(0);
+    this.uploadFileToActivity()
+  }
+
+  uploadFileToActivity() {
+    this.produtoService.uploadArquivo(this.arquivo).subscribe((data: any) => {
+      this.produto.imagem = data.filename
+      console.log(this.produto.imagem)
+      }, error => {
+        this.errors.push({msg: 'Ocorreu um erro ao fazer upload do arquivo'})
+      });
   }
 }
