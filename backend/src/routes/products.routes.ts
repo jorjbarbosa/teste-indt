@@ -10,8 +10,10 @@ const productController = new ProductController()
 
 productsRouter.get('/', productController.index)
 productsRouter.get('/:id', productController.show)
-productsRouter.post('/', upload.single('imagem'), validateProduct, productController.store)
-productsRouter.put('/:id', upload.single('imagem'), validateProduct, productController.update)
+productsRouter.post('/', validateProduct, productController.store)
+productsRouter.put('/:id', validateProduct, productController.update)
 productsRouter.delete('/:id', productController.delete)
+productsRouter.post('/upload', upload.single('imagem'), productController.uploadImagem)
+
 
 export default productsRouter

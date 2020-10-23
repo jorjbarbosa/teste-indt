@@ -28,8 +28,7 @@ export default class ProductController {
     if (!errors.isEmpty())
       return response.status(400).json({ errors: errors.array() });
 
-    const { nome, descricao, valor, disponivel } = request.body
-    const imagem = request.file.filename
+    const { nome, descricao, valor, disponivel, imagem } = request.body
 
     const storeProduct = new StoreProductService()
     const product = await storeProduct.store({
@@ -51,7 +50,7 @@ export default class ProductController {
     const updateProduct = new UpdateProductService()
     const { id } = request.params
     const { nome, descricao, valor, disponivel } = request.body
-    const imagem = !request.file ? null : request.file.filename
+    const imagem = !request.body.imagem ? null : request.body.imagem
 
     const product = await updateProduct.update(id, {
       nome,
@@ -70,5 +69,9 @@ export default class ProductController {
 
     const result = await deleteProduct.execute(id)
     return response.status(200).json(result)
+  }
+
+  public uploadImagem(request: Request, response: Response) {
+    return response.status(200).json(request.file)
   }
 }
