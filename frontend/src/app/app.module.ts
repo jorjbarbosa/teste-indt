@@ -10,6 +10,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ListaProdutosComponent } from './lista-produtos/lista-produtos.component';
 import { ProdutoComponent } from './produto/produto.component';
+import { GerenciarProdutosComponent } from './gerenciar-produtos/gerenciar-produtos.component';
+import { CadastrarProdutoComponent } from './cadastrar-produto/cadastrar-produto.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { ProdutoComponent } from './produto/produto.component';
     VitrineComponent,
     NavbarComponent,
     ListaProdutosComponent,
-    ProdutoComponent
+    ProdutoComponent,
+    GerenciarProdutosComponent,
+    CadastrarProdutoComponent
   ],
   imports: [
     BrowserModule,

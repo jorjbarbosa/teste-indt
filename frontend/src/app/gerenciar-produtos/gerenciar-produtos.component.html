@@ -1,0 +1,28 @@
+<div class="container">
+  <h4 class="mr-auto">Produtos Cadastrados</h4>
+  <a [routerLink]="'/produtos/cadastrar'" class="btn btn-primary ml-auto">Cadastrar</a>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Preço</th>
+        <th>Disponível</th>
+        <th>Imagem</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let produto of produtos">
+        <td>{{ produto.nome }}</td>
+        <td>{{ produto.valor }}</td>
+        <td>{{ produto.disponivel }}</td>
+        <td>
+          <a [href]="'http://localhost:3333/files/' + produto.imagem" target="_blank">{{ produto.imagem }}</a>
+        <td>
+          <a href="#" class="btn btn-primary">Editar</a>
+          <a href="#" class="btn btn-danger">Excluir</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
