@@ -1,0 +1,9 @@
+<div class="card-group">
+  <div *ngFor="let produto of produtos">
+    <app-produto
+    [nome]="produto.nome"
+    [descricao]="produto.descricao"
+    [valor]="produto.valor"
+    [imagem]="produto.imagem"></app-produto>
+  </div>
+</div>

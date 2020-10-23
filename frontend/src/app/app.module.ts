@@ -8,12 +8,16 @@ import { ProdutoService } from './produto.service';
 import { VitrineComponent } from './vitrine/vitrine.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ListaProdutosComponent } from './lista-produtos/lista-produtos.component';
+import { ProdutoComponent } from './produto/produto.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     VitrineComponent,
-    NavbarComponent
+    NavbarComponent,
+    ListaProdutosComponent,
+    ProdutoComponent
   ],
   imports: [
     BrowserModule,

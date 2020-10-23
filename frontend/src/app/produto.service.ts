@@ -8,7 +8,11 @@ export class ProdutoService {
 
   constructor(private http: HttpClient) { }
 
-  listarProdutos(): Observable<any> {
-    return this.http.get('http://localhost:3333/api/products')
+  listarProdutos(completo: boolean): Observable<any> {
+    return this.http.get('http://localhost:3333/api/products', {
+      params: {
+        
+      }
+    })
   }
 }

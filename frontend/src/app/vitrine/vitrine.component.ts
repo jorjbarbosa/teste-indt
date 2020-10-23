@@ -7,21 +7,9 @@ import { ProdutoService } from '../produto.service';
   styleUrls: ['./vitrine.component.css']
 })
 export class VitrineComponent implements OnInit {
-  public produtos
-  constructor(private produtoService: ProdutoService) {
-    this.produtos = []
-  }
+  constructor() { }
 
   ngOnInit(): void {
-    this.listarProdutos()
-  }
-
-  listarProdutos() {
-    this.produtoService.listarProdutos().subscribe(produtos => {
-      this.produtos = produtos
-    }, err => {
-      console.log(err)
-    })
   }
 
 }
