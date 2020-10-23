@@ -4,6 +4,8 @@ Este projeto é um teste técnico proposto pelo Instituto Nacional de Desenvolvi
 
 O teste consiste em desenvolver um CRUD para gerenciar produtos e foi dividido em duas partes (Frontend e Backend) e foi desenvolvido utilizando TypeScript e Angular
 
+Tabmém foi usado sqlite para o banco de dados
+
 # Requesitos
 
 Para executar os sistemas deste repositório é necessário posuir:
@@ -56,7 +58,7 @@ Este endpoint retorna dados de todos os produtos cadastrados no sistema
 
 Este endpoint permite cadastrar um novo produto
 
-**Parâmetros**
+**Request**
 
 Name | Required | Description
 -----|-----------|----------
@@ -65,4 +67,50 @@ descricao | true  | Descrição do produto
 valor | true  | Valor do produto
 imagem | true  | Descrição do produto
 disponivel | true | Informa se o produto esta disponível para venda 
+
+### Visualizar Produto
+
+`GET /api/products/:id`
+
+Este endpoint permite visualizar um produto cadastrado, retorna 404 caso não encontrado
+
+**Parâmetros**
+
+Name | Required | Description
+-----|-----------|----------
+id   | true | ID do produto
+
+### Atualizar Produto
+
+`PUT /api/products/:id`
+
+Este endpoint permite atualizar um produto cadastrado
+
+**Parâmetros**
+
+Name | Required | Description
+-----|-----------|----------
+id   | true | ID do produto
+
+**Request**
+
+Name | Required | Description
+-----|-----------|----------
+nome   | true | Nome do produto
+descricao | true  | Descrição do produto
+valor | true  | Valor do produto
+imagem | true  | Descrição do produto
+disponivel | true | Informa se o produto esta disponível para venda 
+
+### Excluir Produto
+
+`DELETE /api/products/:id`
+
+Este endpoint permite excluir um produto cadastrado, retorna 404 caso não encontrado
+
+**Parâmetros**
+
+Name | Required | Description
+-----|-----------|----------
+id   | true | ID do produto
 
